@@ -83,16 +83,18 @@ export default function ChatContainer({ currentChat, socket }) {
             <h3>{currentChat.username}</h3>
           </div>
         </div>
-        <Logout />
+        <div className="videocall-logout-icon">
+          <Video />
+          <Logout />
+        </div>
       </div>
       <div className="chat-messages">
         {messages.map((message) => {
           return (
             <div ref={scrollRef} key={uuidv4()}>
               <div
-                className={`message ${
-                  message.fromSelf ? "sended" : "recieved"
-                }`}
+                className={`message ${message.fromSelf ? "sended" : "recieved"
+                  }`}
               >
                 <div className="content ">
                   <p>{message.message}</p>
@@ -136,6 +138,14 @@ const Container = styled.div`
       }
     }
   }
+  .videocall-logout-icon{
+  display:flex;
+  justify-content: center;
+  width: fit-content;
+  }
+  .videocall-logout-icon > *:not(:last-child) {
+  margin-right: 15px; /* Adjust this value to bring them closer */
+}
   .chat-messages {
     padding: 1rem 2rem;
     display: flex;
