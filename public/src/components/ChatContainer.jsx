@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import ChatInput from "./ChatInput";
+import VideoCall from "./VideoCall";
 import Logout from "./Logout";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
@@ -84,7 +85,7 @@ export default function ChatContainer({ currentChat, socket }) {
           </div>
         </div>
         <div className="videocall-logout-icon">
-          <Video />
+          <VideoCall />
           <Logout />
         </div>
       </div>
@@ -138,7 +139,7 @@ const Container = styled.div`
       }
     }
   }
-  .videocall-logout-icon{
+.videocall-logout-icon{
   display:flex;
   justify-content: center;
   width: fit-content;

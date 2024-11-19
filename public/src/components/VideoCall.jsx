@@ -2,20 +2,20 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { BiVideo } from "react-icons/bi";
 import styled from "styled-components";
-// import axios from "axios";
-// import { logoutRoute } from "../utils/APIRoutes";
-export default function Video() {
+import axios from "axios";
+import { logoutRoute } from "../utils/APIRoutes";
+export default function VideoCall() {
     const navigate = useNavigate();
-    // const handleClick = async () => {
-    //   // const id = await JSON.parse(
-    //   //   localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
-    //   // )._id;
-    //   // const data = await axios.get(`${logoutRoute}/${id}`);
-    //   // if (data.status === 200) {
-    //   //   localStorage.clear();
-    //   //   navigate("/login");
-    //   // }
-    // };
+    const handleClick = async () => {
+        const id = await JSON.parse(
+            localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
+        )._id;
+        const data = await axios.get(`${logoutRoute}/${id}`);
+        if (data.status === 200) {
+            localStorage.clear();
+            navigate("/login");
+        }
+    };
     return (
         <Button onClick={handleClick}>
             <BiVideo />
@@ -31,7 +31,6 @@ const Button = styled.button`
   border-radius: 0.5rem;
   background-color: #9a86f3;
   border: none;
-  margin-right: 4rem;
   cursor: pointer;
   svg {
     font-size: 1.3rem;
