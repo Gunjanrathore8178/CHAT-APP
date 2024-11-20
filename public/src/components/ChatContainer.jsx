@@ -156,7 +156,7 @@ const Container = styled.div`
     &::-webkit-scrollbar {
       width: 0.2rem;
       &-thumb {
-        background-color: #ffffff39;
+        background-color: #ffff;
         width: 0.1rem;
         border-radius: 1rem;
       }
